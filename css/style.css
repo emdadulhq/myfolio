@@ -1,0 +1,417 @@
+
+.clr {
+    clear: both;
+}
+
+ol,ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body{
+	scroll-behavior: smooth;
+}
+
+
+
+.menu {        
+    padding: 20px 0; 
+    margin-right: 0%;
+	z-index: 999;
+	position: fixed;
+}
+
+
+.dropdown-menu{
+    background-color: transparent;
+}
+
+
+.menu ul li a {
+    font-size: 17px;
+    color: white!important;
+    font-family: 'Exo', sans-serif;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    
+      
+}
+
+
+.menu ul li a:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: #028794;
+    transition: 0s;
+    
+}
+
+
+
+.banner_sec {
+    background: url(../img/Banner.jpg) left top;
+    background-repeat: no-repeat;
+    height: 824px;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: .5;
+    z-index: -1;
+}
+
+
+.banner_text {
+    text-align: right;    
+    font-family: 'Exo', sans-serif;
+}
+
+.banner_text p {
+    font-size: 40px;
+    padding-top: 30%;
+    color: white;    
+}
+
+
+
+
+.about_txt{    
+    background-color: white;
+    padding: 20px 0px;
+}
+
+.about_txt h4{
+    font-size: 26px;
+    color: #028794 ;    
+    padding-top: 80px;
+    font-family: 'Exo', sans-serif;
+}
+.about_img{
+    text-align: right;
+    padding-top: 60px;
+    height: 100%;
+    width: 100%;
+}
+.about_txt p{
+    font-size: 15px;
+    color: black;
+    font-family: lato; 
+    padding: 10px 0px;
+    padding-bottom: 80px;
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+}
+.service_sec {
+    background: url(../img/Banner2.jpg) left top;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-size: cover;
+    position: relative;	
+    z-index: 1;
+}
+
+.ser_txt{
+    text-align: center;
+}
+.ser_txt h4{
+    font-size: 26px;
+    color: #028794 ;    
+    padding-top: 50px;
+    font-family: 'Exo', sans-serif;
+}
+
+
+.ser_txt p{
+    font-size: 17px;
+    color: white;    
+    padding-top: 30px;
+    font-family: 'Exo', sans-serif;
+    
+}
+
+.ser_tm{
+    font-size: 26px;
+    color: #028794 ;    
+    padding-top: 50px;
+    font-family: 'Exo', sans-serif;
+    
+    
+}
+
+.ser_tm h4{
+    padding-top: 5%;
+}
+.ser_tm p{
+    text-align: justify;
+    color: white;
+    padding: 30px 0;
+    font-size: 14px;
+}
+
+
+
+
+
+
+.work_txt{
+   
+    text-align: center;
+}
+.work_txt h4{
+    color: #028794;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 56px;
+    font-family: 'Exo', sans-serif;
+}
+.work_txt p{
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 26px;
+    padding-bottom: 38px;
+    font-family: 'Exo', sans-serif;
+}
+
+.workmenu {    
+    text-align: center; 
+    padding-bottom: 49px;
+    
+}
+
+
+.workmenu ul li {
+    display: inline-block;
+    
+}
+
+.workmenu ul li a {
+    font-size: 17px;
+    color: black;
+    font-family: 'Exo', sans-serif;
+    padding: 5px 30px;
+    border: 1px solid transparent;
+    text-decoration: none;
+      
+}
+
+
+.workmenu ul li a:hover {
+    background-color: #028794;
+    color: white;
+    border-color: #028794;
+    transition: 0s;
+    border-radius: 5px;
+    
+}
+
+
+
+
+.work_img {        
+    position: relative;
+    color: white;
+    text-align: center;
+    height: 220px;
+    width: 293px;    
+}
+
+.over_text {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    width: 100%;
+    padding-top: 30%;
+    background-color: rgba(32, 135, 136, 0.8);
+    text-align: center;        
+    transition: all linear .3s;
+    transform: scale(0)
+    
+}
+
+.work_img:hover .over_text {
+    transform: scale(1)
+}
+
+
+
+
+
+.full_underteam1{
+    background-color: #f6f9f9;
+    height: 600px;
+    text-align: center;
+}
+
+.main_underteam1 h3{
+    font-size: 14px;
+    color: #00133e;   
+}
+
+
+
+
+.work_btn{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.work_btn button {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid #028794;
+    background-color: transparent;
+}
+.work_btn button:hover {
+    font-size: 18px;
+    color: white;
+    padding: 10px 20px;
+    background-color: #028794;
+    border: 1px solid #028794;
+    border-radius: 5px;   
+}
+
+
+.work_btn h4{
+    color: #028794;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 56px;
+    font-family: 'Exo', sans-serif;
+}
+.work_btn p{
+    color: black;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 26px;
+    padding-bottom: 38px;
+    font-family: 'Exo', sans-serif;
+}
+
+
+
+.i3tm p{    
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+    padding: 5px 0px;
+}
+.i3tm h6{    
+    text-align: justify;
+    font-family: 'Exo', sans-serif;
+    color: #028794;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.i3tmbt{
+    text-align: right;
+    font-family: 'Exo', sans-serif;
+}
+
+.i3tm button {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid #028794;
+    background-color: #028794;
+    margin-bottom: 30px;
+    margin-right: 15px;
+}
+.i3tm button:hover {
+    font-size: 14px;
+    color: white;
+    padding: 10px 20px;
+    background-color: #08616a;
+    border: 1px solid #028794;
+    border-radius: 10px;   
+}
+
+
+
+.footer_sec {
+    background-color: black;    
+  
+    
+}
+
+.ftext h1{
+    color: #028794;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-family: 'Exo', sans-serif;    
+    font-size: 18px;
+}
+.ftext ul li a{
+    color: white;    
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+    padding-top: 10px;
+    
+}
+.ftext ul li {    
+    padding-top: 10px;    
+}
+.ftext ul li i{    
+    color: #028794;    
+}
+
+
+
+.footer1{    
+    text-align: left;    
+    font-size: 14px;
+    color: #fff!important;
+    text-decoration: none;
+    padding-top: 10px;
+}
+.ftr_sec {
+    background-color: #000000!important;    
+  
+    
+}
+
+.social_icon{    
+    text-align: right;
+    margin-right: auto;
+    
+}
+
+.social_icon ul li a{
+	background: #0073bf;
+    text-align: right;
+	color: #fff;
+	padding: 10px 15px;
+	margin: 0px 5px;
+    border-radius: 10px;
+    
+}
+.twbg{
+    background-color: #00c9df!important;
+}
+.ytbg{
+    background-color: #fe5e5e!important;
+}
+
+ul, li, a {
+    text-decoration: none;
+}
+
+.contact_sec{
+    padding: 60px 0px;
+}

@@ -1,0 +1,165 @@
+@font-face {
+	src: url('../fonts/UbuntuCondensed-Regular.ttf');
+	font-family: 'ubuntu';
+}
+* {
+	font-family: 'ubuntu';
+}
+
+
+body {
+	background-color: #e9e9e9;
+}
+
+.btn {
+	border-radius: 0px !important;
+}
+
+input, input:focus {
+	border-radius: 0px !important;
+	outline: none !important;
+	box-shadow: none !important;
+	border: 1px solid #ccc !important;
+}
+input[type="submit"]  {
+	border: 1px solid transparent !important;
+}
+
+.wrap {
+	width: 500px;
+	margin: 50px auto 0px;
+
+}
+
+.wrap-table {
+	width: 1000px;
+	margin: 50px auto 0px;
+
+}
+.wrap-table table tr td {
+	vertical-align: middle !important;
+	padding: 3px 5px;
+}
+
+.wrap-table table tr td img {
+	width: 50px;
+	height: 50px;
+	vertical-align: middle !important;
+} 
+
+.wrap-table table tbody tr td:first-child{
+	width: 30px !important;
+}
+.wrap-table table tbody tr td:last-child{
+	text-align: right;
+	width: 160px;
+}
+
+
+@media (max-width:600px){
+	.congrats h1{
+		font-size:1.2em;
+	}
+	
+	.done{
+		top:-10px;
+		width:80px;
+		height:80px;
+	}
+	.text{
+		font-size:0.5em;
+	}
+	.regards{
+		font-size:0.6em;
+	}
+}
+
+@media (max-width:500px){
+	.congrats h1{
+		font-size:1em;
+	}
+	
+	.done{
+		top:-10px;
+		width:70px;
+		height:70px;
+	}
+	
+}
+
+@media (max-width:410px){
+	.congrats h1{
+		font-size:1em;
+	}
+	
+	.congrats .hide{
+		display:none;
+	}
+	
+	.congrats{
+		width:100%;
+	}
+	
+	.done{
+		top:-10px;
+		width:50px;
+		height:50px;
+	}
+	.regards{
+		font-size:0.55em;
+	}
+
+@media (max-width:600px){
+	.congrats h1{
+		font-size:1.2em;
+	}
+	
+	.done{
+		top:-10px;
+		width:80px;
+		height:80px;
+	}
+	.text{
+		font-size:0.5em;
+	}
+	.regards{
+		font-size:0.6em;
+	}
+}
+
+@media (max-width:500px){
+	.congrats h1{
+		font-size:1em;
+	}
+	
+	.done{
+		top:-10px;
+		width:70px;
+		height:70px;
+	}
+	
+}
+
+@media (max-width:410px){
+	.congrats h1{
+		font-size:1em;
+	}
+	
+	.congrats .hide{
+		display:none;
+	}
+	
+	.congrats{
+		width:100%;
+	}
+	
+	.done{
+		top:-10px;
+		width:50px;
+		height:50px;
+	}
+	.regards{
+		font-size:0.55em;
+	}
+	
+}
