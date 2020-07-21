@@ -1,9 +1,9 @@
 
 <?php 
 
-include_once('include/header.php');
-include_once('config.php');
-include_once "apps/function.php"; ?>
+require_once ('include/header.php');
+require_once ('config.php');
+require_once "apps/function.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,27 +29,23 @@ include_once "apps/function.php"; ?>
 		$email = $_POST['email'];
 		$cell = $_POST['cell'];
 		$dob = $_POST['dob'];
-        $gender = $_POST['gender'];
+
+		//gender value fix
+        if(isset($_POST['gender'])){
+            $gender=$_POST['gender'];
+        }
+
 		$location = $_POST['location'];
 		$uname = $_POST['uname'];
 		$password = $_POST['password'];
-		$photo = $_FILES['photo'];
+
+        //Photo upload
+        photoUpload($_FILES['photo'], 'usr_info/', ['jpg','png','gif','jpeg'], '500');
 
 
-		//file system
-
-		$file_name = $_FILES['photo']['name'];
-		$file_tmp = $_FILES['photo']['tmp_name'];
-		$file_size = $_FILES['photo']['size']/(1024*1024);
-		
-		//file extension
-		$fileArray = explode('.' , $file_name);
-		$fileExt = strtolower(end($fileArray));	
 
 
-		//unique name
-		//$uniqueName = md5(time(). rand()).'.'.$fileExt;
-		$uniqueName = date('d-m-y g:i:s').'.'.$fileExt;
+
 
 
 
@@ -66,15 +62,11 @@ include_once "apps/function.php"; ?>
 			$mess = "<p class=\"alert alert-danger\"> আপনার প্রদানকৃত ইমেইল এড্রেসটি সঠিক নয়!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
 		}elseif(ageValidate($dob, 1990-01-01, 2020-01-01 ) == false){
 			$mess = "<p class=\"alert alert-warning\"> জন্মতারিখ ০১-০১-১৯৯০ থেকে ০১-০১-২০০০ এর মধ্যে নেই!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
-		}elseif(in_array($fileExt, ['jpg','png','gif','jpeg'])==false){
-			$mess = "<p class=\"alert alert-warning\"> Your Photo Format is not valid!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
-		}elseif($file_size > .5){
-			$mess = "<p class=\"alert alert-warning\"> Your Photo size is too large!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
 		}else{
 
-		    move_uploaded_file($file_tmp,  'usr_info/'. $uniqueName);
-            $query="INSERT INTO userinfo (name, email, cell, dob) VALUES ('$name','$email','$cell','$dob')";
-            $query=mysqli_query($con,$query);
+
+            $query = "INSERT INTO userinfo (name, email, cell, dob, gender, location, uname, password) VALUES ('$name','$email','$cell','$dob','$gender','$location','$uname','$password')";
+            $con -> query($query);
 			header('location:congrats.php');
 		}
 	}

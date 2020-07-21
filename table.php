@@ -33,16 +33,19 @@ include_once('config.php');
 							<th>Email</th>
 							<th>Cell</th>
 							<th>Date of Birth</th>
+							<th>Gender</th>
+							<th>Location</th>
+							<th>Username</th>
 							<th>Photo</th>
 							<th>Action</th>
 						</tr>
 					</thead>
                 <?php
                 $qry = "SELECT * FROM userinfo ";
-                $res = mysqli_query($con,$qry);
+                $res = $con -> query($qry);
                 $i = 1;
 
-                while ($data = mysqli_fetch_assoc($res)):
+                while ($data = $res -> fetch_assoc()):
 
                 ?>
 					<tbody>
@@ -52,6 +55,9 @@ include_once('config.php');
 							<td><?php echo $data['email']?></td>
 							<td><?php echo $data['cell']?></td>
 							<td><?php echo $data['dob']?></td>
+							<td><?php echo $data['gender']?></td>
+							<td><?php echo $data['location']?></td>
+							<td><?php echo $data['uname']?></td>
 
 							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
 							<td>

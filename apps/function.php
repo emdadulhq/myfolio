@@ -38,3 +38,41 @@ function cellVal($cell){
 		return false;
 	}
 }
+
+
+//Photo uploading system
+function photoUpload($photo, $location, $file_type='jpg', $file_size=1024){
+
+    //photo information
+    $photo_name = $photo['name'];
+    $photo_tmp_name = $photo['tmp_name'];
+    $photo_size = $photo['size']/1024;
+
+    //file extention
+    $photo_expld = explode('.',$photo_name);
+    $photo_ext = strtolower (end($photo_expld));
+
+    //unique name
+    $uniqueName = md5(time(). rand()).'.'.$photo_ext;
+    //$uniqueName = date('d-m-y g:i:s').'.'.$photo_ext;
+
+    //file size fix
+    if($photo_size > $file_size){
+        $Photo_sz = false;
+    }else{
+        $Photo_sz = true;
+    }
+
+
+
+    if(in_array($photo_ext, $file_type)==false){
+        $mess = "<p class=\"alert alert-warning\"> Your Photo Format is not valid!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
+    }elseif( $Photo_sz == false){
+        echo $mess = "<p class=\"alert alert-warning\"> Your Photo size is too large!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
+    }else{
+
+        //Upload image
+        move_uploaded_file($photo_tmp_name,  $location . $uniqueName);
+
+    }
+}
