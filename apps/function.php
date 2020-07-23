@@ -68,11 +68,35 @@ function photoUpload($photo, $location, $file_type='jpg', $file_size=1024){
     if(in_array($photo_ext, $file_type)==false){
         $mess = "<p class=\"alert alert-warning\"> Your Photo Format is not valid!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
     }elseif( $Photo_sz == false){
-        echo $mess = "<p class=\"alert alert-warning\"> Your Photo size is too large!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
+        $mess = "<p class=\"alert alert-warning\"> Your Photo size is too large!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
     }else{
 
         //Upload image
         move_uploaded_file($photo_tmp_name,  $location . $uniqueName);
 
     }
+
+
+    //Return value
+    return[
+    'file_name'     => $uniqueName,
+    'mess'          => $mess,
+    ];
+}
+
+
+
+function dbCheck($value, $val1, $val2){
+//Mail Check in database
+    $query = "SELECT $val1 FROM userinfo WHERE  $val1 ='$val2'";
+
+    $value -> query($query);
+    $num = $value -> num_rows;
+
+    if ( $num >0 ) {
+        return false;
+    }else {
+        return true;
+    }
+
 }

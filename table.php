@@ -51,15 +51,14 @@ include_once('config.php');
 					<tbody>
 						<tr>
 							<td><?php echo $i++ ?></td>
-							<td><?php echo $data['name']?></td>
-							<td><?php echo $data['email']?></td>
-							<td><?php echo $data['cell']?></td>
-							<td><?php echo $data['dob']?></td>
-							<td><?php echo $data['gender']?></td>
-							<td><?php echo $data['location']?></td>
-							<td><?php echo $data['uname']?></td>
-
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
+							<td><?php echo $data['name'];?></td>
+							<td><?php echo $data['email'];?></td>
+							<td><?php echo $data['cell'];?></td>
+							<td><?php echo $data['dob'];?></td>
+							<td><?php echo $data['gender'];?></td>
+							<td><?php echo $data['location'];?></td>
+							<td><?php echo $data['uname'];?></td>
+							<td><img src="usr_info/<?php echo $data['photo'];?>" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>

@@ -39,11 +39,32 @@ require_once "apps/function.php"; ?>
 		$uname = $_POST['uname'];
 		$password = $_POST['password'];
 
-        //Photo upload
-        photoUpload($_FILES['photo'], 'usr_info/', ['jpg','png','gif','jpeg'], '500');
+
+        $mess = null;
 
 
 
+        //cell Check in database
+        $query = "SELECT cell FROM userinfo WHERE  cell ='$cell'";
+        $cell_value = $con -> query($query);
+        $num_cell = $cell_value -> num_rows;
+
+        if ( $num_cell >0 ) {
+            $cell_in_db = false;
+        }else {
+            $cell_in_db = true;
+        }
+
+        //Mail Check in database
+        $query = "SELECT uname FROM userinfo WHERE  uname ='$uname'";
+        $uname_value = $con -> query($query);
+        $num_uname = $uname_value -> num_rows;
+
+        if ( $num_uname >0 ) {
+            $uname_in_db = false;
+        }else {
+            $uname_in_db = true;
+        }
 
 
 
@@ -52,7 +73,7 @@ require_once "apps/function.php"; ?>
 
 				
 		//empty field check for form
-		if(empty($name) || empty($email) || empty($cell) || empty($dob) || empty($photo)){
+		if(empty($name) || empty($email) || empty($cell) || empty($dob) || empty($gender) || empty($location) || empty($uname) || empty($password)){
 			$mess = "<p class=\"alert alert-danger\"> সবগুলো ঘর অবশ্যই পূরণীয় (অত্যাবশ্যক)! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
 		}elseif(cellVal($cell) == false){
 			$mess = "<p class=\"alert alert-warning\"> আপনার প্রদানকৃত মোবাইল নম্বরটি সঠিক নয়! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
@@ -62,12 +83,27 @@ require_once "apps/function.php"; ?>
 			$mess = "<p class=\"alert alert-danger\"> আপনার প্রদানকৃত ইমেইল এড্রেসটি সঠিক নয়!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
 		}elseif(ageValidate($dob, 1990-01-01, 2020-01-01 ) == false){
 			$mess = "<p class=\"alert alert-warning\"> জন্মতারিখ ০১-০১-১৯৯০ থেকে ০১-০১-২০০০ এর মধ্যে নেই!! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
-		}else{
+		}elseif (dbCheck('$email','email', '$email',) == false){
+            $mess = "<p class=\"alert alert-warning\"> This E-mail is already exist in our database! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
+        }elseif ($cell_in_db == false){
+            $mess = "<p class=\"alert alert-warning\"> This Mobile No are already Registered! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
+        }elseif ($uname_in_db == false){
+            $mess = "<p class=\"alert alert-warning\"> This Username is already Taken by another! <button class=\"close\" data-dismiss=\"alert\">&times;</button> </p>";
+        }else{
+
+            //Photo upload
+            $photo_data = photoUpload($_FILES['photo'], 'usr_info/', ['jpg','png','gif','jpeg'], '500');
+            $photo_msg = $photo_data ['mess'];
+            $photo_name = $photo_data ['file_name'];
+            if (!empty($photo_msg)){
+                $mess = $photo_name;
+            }else{
+                $query = "INSERT INTO userinfo (name, email, cell, dob, gender, location, uname, password) VALUES ('$name','$email','$cell','$dob','$gender','$location','$uname','$password')";
+                $con -> query($query);
+                header('location:congrats.php');
+            }
 
 
-            $query = "INSERT INTO userinfo (name, email, cell, dob, gender, location, uname, password) VALUES ('$name','$email','$cell','$dob','$gender','$location','$uname','$password')";
-            $con -> query($query);
-			header('location:congrats.php');
 		}
 	}
 	
